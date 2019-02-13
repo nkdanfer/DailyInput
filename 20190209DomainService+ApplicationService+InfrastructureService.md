@@ -1,0 +1,20 @@
+- [Archictecture](https://stackoverflow.com/questions/2268699/domain-driven-design-domain-service-application-service)
+    - Domain Services:包含业务逻辑(一个域实体中容纳不下的)，但不是CRUD
+    - Application Services:外部系统消费的，如果外部系统有CRUD的需求，此处也可以暴露出来
+    - Infrastructure Services:用于抽象技术关注点(如，MSMQ,email等)
+    - DomainService和Domain对象放一起(都专注于业务逻辑)，Repostory可以注入到服务中
+    - 另外一个参考:[Application Services vs. Infrastructure Services vs. Domain Services](https://www.bennadel.com/blog/2385-application-services-vs-infrastructure-services-vs-domain-services.htm)![image](https://www.bennadel.com/resources/uploads/2012/service_architecture_diagram.gif)
+        - as=工作流/用例=command,不能被ds调用及相互调用,即应用程序逻辑
+        - is=非问题域的外部资源访问入口，如：emailing/logging
+        - ds=问题域逻辑=业务逻辑
+        - ==注意==图中的Gateway就是Repository，而InfrastructureService是不能访问Domain的Repository的！而InfrastructrureService是可以自己定义Repository(即,数据持久层)接口和现实的，所以可以利用ConnectionString写入同一个数据库，并可以用Domain中的Repository来替换InfrastructureService中的Repository
+        - ==结论：通过后面的讨论，InfrastructureService应该归于Gateway，而Gateway是可以访问外部资源的代理，如:数据库，twitter交互，email，logging等==
+        - ==金句：When I start a small app, I have everything in the controller(s) and the domain objects and as the app grows, I refactor things into various service layers. Since you have to edit code to change it, making small improvements every time you change code is reasonable: it's just part of the normal editing cycle. It ensures you deliver what's needed without spending time building something you don't need (yet) and you do "just enough" to ensure you have something maintainable.==
+    - 正确的打开方式在这里：==[Software Application Layers And Responsibilities](https://www.bennadel.com/blog/2437-software-application-layers-and-responsibilities.htm)==
+    - 后续：[Exploring Sample Software Application Layers And Responsibilities](https://www.bennadel.com/blog/2454-exploring-sample-software-application-layers-and-responsibilities.htm)
+    - [大牛的blog:SeanCorfield](http://corfield.org/)
+    - 其他人的见解：[Services in Domain-Driven Design (DDD)](http://gorodinski.com/blog/2012/04/14/services-in-domain-driven-design-ddd/)
+    - [微软持久化VO的方](https://docs.microsoft.com/en-us/dotnet/standard/microservices-architecture/microservice-ddd-cqrs-patterns/implement-value-objects)
+- DDD
+    - [Application Services - 10 common doubts answered](https://blog.arkency.com/application-service-ruby-rails-ddd/)ddd方面的10个问答，虽然是ruby的但非常用！！还有文未推荐也很好
+    - 
