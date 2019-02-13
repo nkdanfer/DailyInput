@@ -1,0 +1,7 @@
+- tools
+    - [VNote](https://tamlok.github.io/vnote/zh_cn/)
+    - [PDMan](https://gitee.com/robergroup/pdman) 开源免费的数据库模型建模工具
+    - [OpenAuth.Net](https://gitee.com/yubaolee/OpenAuth.Core) 基于.Net Core 2.1的快速开发框架
+    - [beyondCompare](http://www.pcsoft.com.cn/soft/36023.html)
+- 基于Class的动态类型(TypeBuilder)
+    - [Creating dynamic type from TypeBuilder with a base class and additional fields generates an exception](https://stackoverflow.com/questions/18467235/creating-dynamic-type-from-typebuilder-with-a-base-class-and-additional-fields-g)
